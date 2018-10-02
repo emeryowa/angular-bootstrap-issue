@@ -1,9 +1,18 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
+    "module" : "esNext",
     "outDir": "../out-tsc/app",
     "types": []
   },
+  "angularCompilerOptions": {
+    "entryModule" : "./app/app.module#AppModule"
+  },
+ "files": [
+    "./polyfills.ts",
+    "./main.ts",
+    "./app/app.module.ts"
+  ],
   "exclude": [
     "src/test.ts",
     "**/*.spec.ts"

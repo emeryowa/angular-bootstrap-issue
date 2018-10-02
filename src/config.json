@@ -1,0 +1,6 @@
+{
+  "production": false,
+  "envName": "development",
+  "apiBaseURL": "//dev.api.com/v1/",
+  "intercomKey": "qz0b98qo"
+}

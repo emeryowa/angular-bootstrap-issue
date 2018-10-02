@@ -1,3 +1,10 @@
+# To reproduce issue
+
+1. Clone repo
+2. Run `npm install`
+3. Run `ng serve`: app runs without errors
+4. Run `ng build --prod` and run `http-server dist/my-app`: app does not load and error `No NgModule metadata found for 'e'` occurs in browser console (https://cl.ly/c19dc17dc7c2)
+
 # MyApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.1.
