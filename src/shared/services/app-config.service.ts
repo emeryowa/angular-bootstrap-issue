@@ -25,4 +25,8 @@ export class AppConfigService {
   public set(config) {
     APP_CONFIG = Object.assign(config);
   }
+
+  public get() {
+    return APP_CONFIG;
+  }
 }

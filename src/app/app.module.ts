@@ -1,20 +1,16 @@
-import { NgModule} from '@angular/core';
+import {forwardRef, Inject, NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { IntercomModule } from 'ng-intercom';
 
 import { AppComponent } from './app.component';
 
-import { APP_CONFIG } from '../shared/services/app-config.service';
-
-console.log('app.module.ts');
-console.log(APP_CONFIG);
 
 @NgModule({
   imports: [
     BrowserModule,
     IntercomModule.forRoot({
-        appId : APP_CONFIG.intercomKey,
+        appId : (window as any).CONFIG.intercomKey,
         updateOnRouterChange: false
     })
   ],
@@ -24,4 +20,8 @@ console.log(APP_CONFIG);
   bootstrap: [AppComponent]
 })
 
-export class AppModule { }
+export class AppModule {
+  constructor() {
+    console.log('app module constructor ', (window as any).CONFIG);
+  }
+}

@@ -2,23 +2,23 @@ import { Component, OnInit } from '@angular/core';
 
 import { Intercom } from 'ng-intercom';
 
-import { APP_CONFIG } from '../shared/services/app-config.service';
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'my-app';
 
   constructor(
     private intercom: Intercom
-  ){}
+  ) {
+    console.log('config in app.component ', (window as any).CONFIG);
+  }
 
   ngOnInit() {
     this.intercom.boot({
-      app_id : APP_CONFIG.intercomKey,
+      app_id : (window as any).CONFIG.intercomKey,
       custom_launcher_selector : '#customIntercomButton'
     });
   }

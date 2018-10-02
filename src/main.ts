@@ -1,8 +1,7 @@
 import {enableProdMode, Injector} from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { AppConfigService } from './shared/services/app-config.service';
 import {AppModule} from './app/app.module';
-
+console.log('AppModule', AppModule);
 /**
  * Fetch  environment variables from config.json. This approach is used over the Angular CLI environments for Docker
  * XMLHttpRequest is used in favor of fetch(), to support IE11 and below
@@ -28,10 +27,7 @@ function onAppConfigLoad() {
  */
 function initConfig(config) {
 
-    const injector = Injector.create([{provide: AppConfigService, useClass: AppConfigService, deps : []}]);
-    const configService = injector.get(AppConfigService);
-    configService.set(config);
-    console.log('config', config);
+    (window as any).CONFIG = config;
     bootstrap(config);
 }
 
@@ -45,11 +41,6 @@ function bootstrap (config) {
     enableProdMode();
   }
   console.log('bootstrap1');
-  // import('./app/app.module').then(module => {
-  //   console.log('module', module);
-  //   platformBrowserDynamic().bootstrapModule(module.AppModule)
-  //     .catch(err => console.error(err));
-  // });
 
     platformBrowserDynamic()
         .bootstrapModule(AppModule).catch(err => console.error(err));
