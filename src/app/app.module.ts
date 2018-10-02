@@ -10,7 +10,7 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     IntercomModule.forRoot({
-        appId : (window as any).CONFIG.intercomKey,
+        appId : 'fake',
         updateOnRouterChange: false
     })
   ],
