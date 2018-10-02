@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log('intercom ', this.intercom);
     this.intercom.boot({
       app_id : (window as any).CONFIG.intercomKey,
       custom_launcher_selector : '#customIntercomButton'
